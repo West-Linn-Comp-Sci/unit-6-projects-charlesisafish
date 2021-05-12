@@ -7,6 +7,16 @@
  */
 public class Array2DExplorer
 {
+    public static void main(String[] args){
+        Array2DExplorer test = new Array2DExplorer();
+        int[][] array = {{0, 1, 2, 3, 4}, {4, 3, 2, 1, 0}, {2, 4, 0, 1, 3}, {100, -5, 0, 8, 50}, {0, 0, 0, 0, 0}};
+        System.out.println(test.minRow(array, 0));
+        test.toString(test.colMaxs(array));
+        test.toString(test.allRowSums(array));
+        test.toString1(test.averageCol(array));
+        System.out.println(test.smallEven(array));
+        System.out.println(test.biggestRow(array));
+    }
     public int minRow(int[][] nums, int row){
         int min = 1000;
         for(int i=0; i<nums[row].length; i++){
@@ -17,14 +27,14 @@ public class Array2DExplorer
         return min;
     }
     public int[] colMaxs(int[][] matrix){
-        int[] maxs = new int[matrix[0].length];
+        int[] maxs = new int[matrix.length];
         int max = 0;
         for(int i=0; i<matrix.length; i++){
             max = 0;
-            for(int g=0; g<matrix.length; g++){
+            for(int g=0; g<matrix[i].length; g++){
                 if(matrix[g][i]>max){
                     max = matrix[g][i];
-                    maxs[g] = matrix[g][i];
+                    maxs[i] = matrix[g][i];
                 }
             }
         }
@@ -79,5 +89,17 @@ public class Array2DExplorer
             }
         }
         return max;
+    }
+    public void toString(int[] nums){
+        for(int i=0; i<nums.length; i++){
+            System.out.print(nums[i] + ", ");
+        }
+        System.out.println();
+    }
+    public void toString1(double[] nums){
+        for(int i=0; i<nums.length; i++){
+            System.out.print( + nums[i] + ", ");
+        }
+        System.out.println();
     }
 }
